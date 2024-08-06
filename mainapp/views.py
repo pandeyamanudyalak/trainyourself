@@ -15,8 +15,8 @@ def contact_us(request):
     return render(request,'contact-us.html')
 
 
-def services(request):
-    return render(request,'services.html')
+def courses(request):
+    return render(request,'courses.html')
 
 
 def blogs(request):
