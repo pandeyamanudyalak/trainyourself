@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .models import Enquiry
 
 # Create your views here.
 
@@ -21,3 +22,17 @@ def courses(request):
 
 def blogs(request):
     return render(request,'blog.html')
+
+
+def enquiry(request):
+    print('RQUET DATA -----',request.POST)
+    email = request.POST.get('email')
+    message = request.POST.get('message')
+    
+    if email and message:
+        enquiry_inst = Enquiry()
+        enquiry_inst.email = email
+        enquiry_inst.message = message
+        enquiry_inst.save()
+        
+    return redirect('/')
